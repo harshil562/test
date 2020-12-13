@@ -6,8 +6,16 @@ import { ITEMS_TO_SHOW } from '../product-utils/utils';
 const CarouselArrows = styled.div`
   &:hover {
     cursor: pointer;
+    border-radius: 50%;
+    background-color: #bbb;
+    color: white;
   }
+  height: 25px;
+  width: 25px;
+  justify-content: center;
+  display: flex;
   margin: 10px;
+  padding-top: 4px;
 `
 
 const ProductDetailsDiv = styled.div`
@@ -46,7 +54,7 @@ const ProductItemsCarousel = ({ items }) => {
 
   const handlePreviousClick = () => {
     // find out whether currentProductIdx eqals 0 and thus user reached beginning of carousel
-    const resetToVeryBack = currentProductIdx === 0;
+    const resetToVeryBack = (currentProductIdx === 0 || currentProductIdx > items.length);
     const index = resetToVeryBack ? items.length - 1 : currentProductIdx - 1;
     setCurrentProductIdx(index);
   };
@@ -60,11 +68,9 @@ const ProductItemsCarousel = ({ items }) => {
 
   return (
     <CarouselContainerWrapper>
-      <CarouselArrows>
-        <span onClick={handlePreviousClick}>{'<'}</span>
-      </CarouselArrows>
+      <CarouselArrows onClick={handlePreviousClick}>{'<'}</CarouselArrows>
       {carouselProductItems.map((item, index) => (
-        <StyledProductItem 
+        <StyledProductItem
           key={item.id}
           highlighted={index === 1}
         >
@@ -76,9 +82,7 @@ const ProductItemsCarousel = ({ items }) => {
           <p>{`Category: ${item.category}`}</p>
         </StyledProductItem>
       ))}
-      <CarouselArrows>
-        <span onClick={handleNextClick}> {'>'} </span>
-      </CarouselArrows>
+      <CarouselArrows onClick={handleNextClick}> {'>'} </CarouselArrows>
     </CarouselContainerWrapper>
   );
 };
