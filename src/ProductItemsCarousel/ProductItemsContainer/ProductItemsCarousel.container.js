@@ -17,7 +17,7 @@ const ProductItemsContainer = () => {
   }
 
   return (
-    <div>
+    <>
       <div className="categories-container">
         {
           categories.map(category => {
@@ -32,10 +32,14 @@ const ProductItemsContainer = () => {
             )
           })
         }
-        <button onClick={handleResetCategory} className="category">Reset</button>
+        <button
+          onClick={handleResetCategory}
+          className="category">
+          Reset
+        </button>
       </div>
       <ProductItemsCarousel items={items} />
-    </div>
+    </>
   );
 };
 
