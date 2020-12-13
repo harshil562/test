@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HookedCarousel from "./HookedCarousel";
+import ProductItemsContainer from "./ProductItemsCarousel/ProductItemsContainer/ProductItemsCarousel.container";
 
-const App = () => <HookedCarousel />;
+const App = () => <ProductItemsContainer />;
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<HookedCarousel />, rootElement);
+ReactDOM.render(<App />, rootElement);

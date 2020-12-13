@@ -1,0 +1,35 @@
+.product-item {
+  display: flex;
+  flex-direction: column;
+  max-width: 20%;
+  border: 1px solid gray;
+  padding: 4px;
+}
+
+.product-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.highlighted-product {
+  border: 2px solid black;
+}
+
+.highlighted-product > img {
+  height: 250px;
+  width: 250px;
+  transition: all 300ms linear;
+}
+
+.carousel-arrows {
+  margin: 10px;;
+}
+
+.carousel-arrows :hover{
+  cursor: pointer;
+}
