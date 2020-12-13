@@ -64,7 +64,8 @@ const ProductItemsCarousel = ({ items }) => {
         <span onClick={handlePreviousClick}>{'<'}</span>
       </CarouselArrows>
       {carouselProductItems.map((item, index) => (
-        <StyledProductItem key={item.id}
+        <StyledProductItem 
+          key={item.id}
           highlighted={index === 1}
         >
           <img src={item.imageUri} alt="product-item" />
