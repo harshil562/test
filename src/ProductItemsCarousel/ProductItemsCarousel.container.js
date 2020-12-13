@@ -7,7 +7,7 @@ import { productItems, categories } from '../product-utils/utils';
 const CategoriesWrapper = styled.div`
   display: flex;
   align-items: center;
-  padding: 10px 0px 10px 30px;
+  padding: 10px 0px 10px 45px;
 `
 
 const StyledCategoryButton = styled.button`
