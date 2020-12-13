@@ -31,9 +31,9 @@ const CarouselContainerWrapper = styled.div`
 const StyledProductItem = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 20%;
+  max-width: 25%;
   border: 1px solid gray;
-  padding: 4px;
+  padding: 6px;
 
   ${({ highlighted }) => highlighted && `
     height: 110%;
