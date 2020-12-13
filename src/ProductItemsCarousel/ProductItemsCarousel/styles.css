@@ -13,16 +13,13 @@
 
 .carousel-container {
   display: flex;
-  flex-direction: column;
+  align-items: center;;
 }
 
 .highlighted-product {
+  height: 110%;
+  width: 110%;
   border: 2px solid black;
-}
-
-.highlighted-product > img {
-  height: 250px;
-  width: 250px;
   transition: all 300ms linear;
 }
 

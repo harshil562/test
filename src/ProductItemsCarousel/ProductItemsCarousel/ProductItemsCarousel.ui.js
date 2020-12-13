@@ -27,23 +27,21 @@ const ProductItemsCarousel = ({ items }) => {
 
   return (
     <div className="carousel-container">
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <div className="carousel-arrows">
-          <span onClick={handlePreviousClick}>{'<'}</span>
-        </div>
-        {carouselProductItems.map((item, index) => (
-          <div key={item.id} className={index === 1 ? 'highlighted-product product-item' : 'product-item'}>
-            <img src={item.imageUri} alt="product-item" />
-            <div className="product-details">
-              <p>{item.name}</p>
-              <p>{`Price: ${item.price}`}</p>
-            </div>
-            <p>{`Category: ${item.category}`}</p>
+      <div className="carousel-arrows">
+        <span onClick={handlePreviousClick}>{'<'}</span>
+      </div>
+      {carouselProductItems.map((item, index) => (
+        <div key={item.id} className={index === 1 ? 'highlighted-product product-item' : 'product-item'}>
+          <img src={item.imageUri} alt="product-item" />
+          <div className="product-details">
+            <p>{item.name}</p>
+            <p>{`Price: ${item.price}`}</p>
           </div>
-        ))}
-        <div className="carousel-arrows">
-          <span onClick={handleNextClick}> {'>'} </span>
+          <p>{`Category: ${item.category}`}</p>
         </div>
+      ))}
+      <div className="carousel-arrows">
+        <span onClick={handleNextClick}> {'>'} </span>
       </div>
     </div>
   );
