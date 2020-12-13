@@ -20,7 +20,7 @@ const ProductItemsCarousel = ({ items }) => {
 
   const handleNextClick = () => {
     // check if we need to start over from the first index
-    const resetIndex = currentProductIdx === items.length - 1;
+    const resetIndex = (currentProductIdx >= items.length - 1);
     const index = resetIndex ? 0 : currentProductIdx + 1;
     setCurrentProductIdx(index);
   };
