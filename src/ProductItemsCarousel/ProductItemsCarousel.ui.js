@@ -1,7 +1,40 @@
 import React, { useState } from "react";
-import { ITEMS_TO_SHOW } from '../../product-utils/utils';
+import styled from 'styled-components'
 
-import "./styles.css";
+import { ITEMS_TO_SHOW } from '../product-utils/utils';
+
+const CarouselArrows = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
+  margin: 10px;
+`
+
+const ProductDetailsDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+const CarouselContainerWrapper = styled.div`
+  display: flex;
+  align-items: center;;
+`
+
+const StyledProductItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 20%;
+  border: 1px solid gray;
+  padding: 4px;
+
+  ${({ highlighted }) => highlighted && `
+    height: 110%;
+    width: 110%;
+    border: 2px solid black;
+    transition: all 300ms linear;
+  `}
+`
+
 
 const ProductItemsCarousel = ({ items }) => {
   const [currentProductIdx, setCurrentProductIdx] = useState(0);
@@ -26,24 +59,26 @@ const ProductItemsCarousel = ({ items }) => {
   };
 
   return (
-    <div className="carousel-container">
-      <div className="carousel-arrows">
+    <CarouselContainerWrapper>
+      <CarouselArrows>
         <span onClick={handlePreviousClick}>{'<'}</span>
-      </div>
+      </CarouselArrows>
       {carouselProductItems.map((item, index) => (
-        <div key={item.id} className={index === 1 ? 'highlighted-product product-item' : 'product-item'}>
+        <StyledProductItem key={item.id}
+          highlighted={index === 1}
+        >
           <img src={item.imageUri} alt="product-item" />
-          <div className="product-details">
+          <ProductDetailsDiv>
             <p>{item.name}</p>
             <p>{`Price: ${item.price}`}</p>
-          </div>
+          </ProductDetailsDiv>
           <p>{`Category: ${item.category}`}</p>
-        </div>
+        </StyledProductItem>
       ))}
-      <div className="carousel-arrows">
+      <CarouselArrows>
         <span onClick={handleNextClick}> {'>'} </span>
-      </div>
-    </div>
+      </CarouselArrows>
+    </CarouselContainerWrapper>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ProductItemsContainer from "./ProductItemsCarousel/ProductItemsContainer/ProductItemsCarousel.container";
+import ProductItemsContainer from "./ProductItemsCarousel/ProductItemsCarousel.container";
 
 const App = () => <ProductItemsContainer />;
 

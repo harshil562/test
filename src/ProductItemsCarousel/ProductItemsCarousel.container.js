@@ -1,8 +1,24 @@
 import React, { useState } from "react";
-import ProductItemsCarousel from '../ProductItemsCarousel/ProductItemsCarousel.ui';
-import { productItems, categories } from '../../product-utils/utils';
+import styled from 'styled-components'
 
-import "./styles.css";
+import ProductItemsCarousel from '../ProductItemsCarousel/ProductItemsCarousel.ui';
+import { productItems, categories } from '../product-utils/utils';
+
+const CategoriesWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 10px 0px 10px 30px;
+`
+
+const StyledCategoryButton = styled.button`
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 10px;
+`
 
 const ProductItemsContainer = () => {
   const [items, setItems] = useState(productItems);
@@ -18,26 +34,26 @@ const ProductItemsContainer = () => {
 
   return (
     <>
-      <div className="categories-container">
+      <CategoriesWrapper>
         {
           categories.map(category => {
             return (
               <div key={category.id}>
-                <button
+                <StyledCategoryButton
                   className="category"
                   onClick={() => handleCategoryClick(category.name)}>
                   {category.name}
-                </button>
+                </StyledCategoryButton>
               </div>
             )
           })
         }
-        <button
+        <StyledCategoryButton
           onClick={handleResetCategory}
           className="category">
           Reset
-        </button>
-      </div>
+        </StyledCategoryButton>
+      </CategoriesWrapper>
       <ProductItemsCarousel items={items} />
     </>
   );
